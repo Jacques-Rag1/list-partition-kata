@@ -71,9 +71,26 @@ public class ListOfIntsTest {
     @Test
     public void partition_should_return_a_list_of_lists_whose_length_is_equal_or_less_than_size() {
         int[] list = {1, 2, 3};
-        int size = 2;
+        int[] list2 = {1, 2, 3, 4, 5};
+        int[] list3 = {1, 2, 3, 4, 5, 6, 7};
+
+        int sizeTwo = 2;
+        int sizeThree = 3;
 
         int[][] listExpected = {{1, 2}, {3}};
+        int[][] listExpected2 = {{1, 2}, {3, 4}, {5}};
+        int[][] listExpected3 = {{1, 2, 3}, {4, 5, 6}, {7}};
+        assertThat(ListOfInts.partition(list, sizeTwo), is(listExpected));
+        assertThat(ListOfInts.partition(list2, sizeTwo), is(listExpected2));
+        assertThat(ListOfInts.partition(list3, sizeThree), is(listExpected3));
+    }
+
+    @Test
+    public void partition_should_return_a_list_of_the_input_list_when_size_is_bigger_than_length() {
+        int[] list = {1, 2, 3, 4, 5, 6, 7};
+        int size = 8;
+
+        int[][] listExpected = {{1, 2, 3, 4, 5, 6, 7}};
         assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
@@ -83,16 +100,6 @@ public class ListOfIntsTest {
         int size = 1;
 
         int[][] listExpected = {{}};
-        assertThat(ListOfInts.partition(list, size), is(listExpected));
-    }
-
-
-    @Test
-    public void partition_should_return_a_list_of_the_input_list_when_size_is_bigger_than_length() {
-        int[] list = {1, 2, 3, 4, 5, 6, 7};
-        int size = 8;
-
-        int[][] listExpected = {{1, 2, 3, 4, 5, 6, 7}};
         assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
