@@ -3,7 +3,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class TestJavaTest {
+public class ListOfIntsTest {
 
     @Test
     public void acceptance_test1() {
@@ -11,7 +11,7 @@ public class TestJavaTest {
         int size = 1;
 
         int[][] listExpected = {{1}, {2}, {3}, {4}, {5}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -20,7 +20,7 @@ public class TestJavaTest {
         int size = 2;
 
         int[][] listExpected = {{1, 2}, {3, 4}, {5}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class TestJavaTest {
         int size = 3;
 
         int[][] listExpected = {{1, 2, 3}, {4, 5}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -38,7 +38,7 @@ public class TestJavaTest {
         int size = list.length;
 
         int[][] listExpected = {{1, 2, 3, 4, 5}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -47,7 +47,7 @@ public class TestJavaTest {
         int size = 2;
 
         int[][] listExpected = {{1, 2}, {3, 4}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class TestJavaTest {
         int size = 1;
 
         int[][] listExpected = {{1}, {2}, {3}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -65,7 +65,7 @@ public class TestJavaTest {
         int size = 2;
 
         int[][] listExpected = {{1, 2}, {3, 4}, {5, 6}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class TestJavaTest {
         int size = 2;
 
         int[][] listExpected = {{1, 2}, {3}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class TestJavaTest {
         int size = 1;
 
         int[][] listExpected = {{}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
 
@@ -93,7 +93,7 @@ public class TestJavaTest {
         int size = 8;
 
         int[][] listExpected = {{1, 2, 3, 4, 5, 6, 7}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
+        assertThat(ListOfInts.partition(list, size), is(listExpected));
     }
 
     @Test
@@ -103,27 +103,11 @@ public class TestJavaTest {
         int sizeNegative = -5;
 
         int[][] listExpected = {{}};
-        assertThat(TestJava.partition(list, sizeZero), is(listExpected));
-        assertThat(TestJava.partition(list, sizeNegative), is(listExpected));
+        assertThat(ListOfInts.partition(list, sizeZero), is(listExpected));
+        assertThat(ListOfInts.partition(list, sizeNegative), is(listExpected));
     }
 
 
-    @Test
-    public void partition_of_a_list_with_5_object_and_2_for_the_size() {
-        Object[] list = {"1", "2", "3", "4", "5"};
-        int size = 2;
-
-        Object[][] listExpected = {{"1","2"}, {"3","4"}, {"5"}};
-        assertThat(TestJava.partition(list, size), is(listExpected));
-    }
-    @Test
-    public void partition_of_a_list_with_5_generics_object_and_2_for_the_size() {
-        String[] list = {"1", "2", "3", "4", "5"};
-        int size = 2;
-
-        String[][] listExpected = {{"1","2"}, {"3","4"}, {"5"}};
-        assertThat(TestJava.partition2(list, size), is(listExpected));
-    }
 
 
 }
