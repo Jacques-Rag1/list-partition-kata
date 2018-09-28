@@ -1,21 +1,40 @@
-import java.util.Arrays;
-
 public class TestJava {
 
     public static int[][] partition(int[] list, int size) {
-        if(list.length == size){
-            int[][] returnList = new int[1][];
-            returnList[0] = list;
-            return returnList;
-        }
-        if (list.length == 2*size){
-            int[][] returnList = new int[2][size];
-            for (int i = 0; i < size; i++) {
-                returnList[0][i] = list[i];
-                returnList[1][i] = list[i + size];
+        int sizeOfList = getSizeOfList(list.length, size);
+        int[][] returnList = new int[sizeOfList][];
+
+        int indexInInputList = 0;
+
+        for (int indexInReturnList = 0; indexInReturnList < returnList.length; indexInReturnList++) {
+
+            int sizeOfSubList = Math.min(list.length - indexInInputList, size);
+            int[] subList = new int[sizeOfSubList];
+
+            for (int indexInSubList = 0; indexInSubList < sizeOfSubList; indexInSubList++) {
+                if (indexInInputList == list.length){
+                    break;
+                }
+                subList[indexInSubList] = list[indexInInputList];
+                indexInInputList++;
             }
-            return returnList;
+
+            returnList[indexInReturnList] = subList;
         }
-        return null;
+
+        return returnList;
+    }
+
+    private static int getSizeOfList(int length, int size) {
+        int sizeOfList;
+        sizeOfList = length / size;
+        if (length % size > 0){
+            sizeOfList += 1;
+        }
+        if (length == 0){
+            sizeOfList = 1;
+        }
+        return sizeOfList;
     }
 }
+

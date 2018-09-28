@@ -49,12 +49,47 @@ public class TestJavaTest {
     }
     @Test
     public void partition_of_a_list_with_n_elements_and_n_divide_by_2_for_the_size() {
-        int[] list = {1,2};
-        int size = 1;
+        int[] list = {1,2,3,4};
+        int size = 2;
 
-        int[][] listExpected = {{1},{2}};
+        int[][] listExpected = {{1,2},{3,4}};
         assertThat(TestJava.partition(list, size), is(listExpected));
     }
+
+    @Test
+    public void partition_of_a_list_with_3_elements_and_2_for_the_size() {
+        int[] list = {1, 2, 3};
+        int size = 2;
+
+        int[][] listExpected = {{1, 2}, {3}};
+        assertThat(TestJava.partition(list, size), is(listExpected));
+    }
+    @Test
+    public void partition_of_a_list_with_3_elements_and_1_for_the_size() {
+        int[] list = {1, 2, 3};
+        int size = 1;
+
+        int[][] listExpected = {{1}, {2}, {3}};
+        assertThat(TestJava.partition(list, size), is(listExpected));
+    }
+
+    @Test
+    public void partition_of_a_list_with_6_elements_and_2_for_the_size() {
+        int[] list = {1, 2, 3, 4, 5, 6};
+        int size = 2;
+
+        int[][] listExpected = {{1,2}, {3,4}, {5,6}};
+        assertThat(TestJava.partition(list, size), is(listExpected));
+    }
+    @Test
+    public void partition_of_an_empty_list_and_1_for_the_size() {
+        int[] list = {};
+        int size = 1;
+
+        int[][] listExpected = {{}};
+        assertThat(TestJava.partition(list, size), is(listExpected));
+    }
+
 
 
 
